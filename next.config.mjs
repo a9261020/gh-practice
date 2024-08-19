@@ -2,7 +2,9 @@
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  assetPrefix: 'https://a9261020.github.io/gh-practice/',
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
