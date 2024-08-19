@@ -80,7 +80,7 @@ jobs:
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './out'
+          path: './next'
 
       - name: deploy
         id: deployment
