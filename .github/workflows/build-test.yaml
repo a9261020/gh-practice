@@ -7,16 +7,22 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Machine
 
     steps:
       - name: checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # uses -> use some actions script template
 
       - name: setup nodejs
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+
+      - name: cache node modules # Use cache avoid install in each jobs
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: install dependencies
         run: npm ci
@@ -36,6 +42,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+
+      - name: cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
 
       - name: install dependencies
         run: npm ci
