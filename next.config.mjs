@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   basePath: '/gh-practice',
-  assetPrefix: '/gh-practice/',
+  assetPrefix: 'https://a9261020.github.io/gh-practice',
   images: {
     unoptimized: true,
   },
